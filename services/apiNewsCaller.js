@@ -1,6 +1,7 @@
 const axios = require("axios");
+const { SETTINGS } = require("../config/settings")
 const instance = axios.create({
-    baseURL: "https://api.newscatcherapi.com/v2/",
+    baseURL: SETTINGS.AXIOS_API.BASE_URL,
     timeout: 1000,
 });
 

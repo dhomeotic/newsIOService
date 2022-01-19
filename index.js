@@ -44,6 +44,13 @@ io.on("connection", (socket) => {
         if (userData != null) {
             console.log("Préférences utilisateur définies.");
             //On envoi de nous même au client les données
+            callNewsAPI(userData).then((data) => {
+                console.log("Send API data.");
+                socket.emit("getNewsAuto", {
+                    data: data,
+                });
+            });
+            //Puis tout les X time on actualise ces données.
             interval = setInterval(function() {
                 //appel api vers l'api d'actualité
                 callNewsAPI(userData).then((data) => {

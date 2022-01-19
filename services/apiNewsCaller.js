@@ -4,6 +4,10 @@ const instance = axios.create({
     timeout: 1000,
 });
 
+/**
+ * @param {String} endpoint
+ * @param {UserData} userData
+ */
 function generateUrl(endpoint, userData) {
     endpoint = endpoint.concat("when=", userData.when);
     if (userData.lang != null) {
@@ -21,6 +25,10 @@ function generateUrl(endpoint, userData) {
     return endpoint;
 }
 
+
+/**
+ * @param {UserData} userData
+ */
 async function callNewsAPI(userData) {
     return instance
         .get(generateUrl("/latest_headlines?", userData), {

@@ -33,8 +33,6 @@ io.on("connection", (socket) => {
         }
     });
 
-
-
     //Le client nous envoie ses filtres pour l'api d'actualité.
     socket.on("setUserData", (sendedUserData) => {
         userData = new UserData(

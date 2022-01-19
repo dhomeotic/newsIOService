@@ -2,10 +2,10 @@
 const client = require("socket.io-client")("http://localhost:3000");
 
 client.emit("setUserData", {
-    //lang: "fr",
+    lang: "en",
     //countries: "FR",
     //topic: "tech",
-    //sources: sources,
+    sources: "lemonde.fr",
 });
 client.emit("getNews");
 

@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "axios": "^0.25.0",
+        "datejs": "^1.0.0-rc3",
         "express": "^4.17.2",
         "socket.io": "^4.4.1",
         "socket.io-client": "^4.4.1"

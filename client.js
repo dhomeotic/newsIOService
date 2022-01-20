@@ -7,7 +7,7 @@ client.emit("setUserData", {
     //topic: "tech",
     //sources: sources,
 });
-client.emit("getNews");
+//client.emit("getNews");
 
 client.on("getNewsAuto", (data) => {
     console.log(data);

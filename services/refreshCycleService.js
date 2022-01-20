@@ -7,7 +7,7 @@ function getTimeBeforeStartCycle() {
    * Because if our program take a little bit time to execute we can have a difference of time,
    * (day if the program start at 11:59pm) between now instance.
    */
-  var now = new Date();
+  var now = new Date().set({hour: 23, minute: 59});
   console.log("Heure actuelle: " + now.toTimeString());
 
   var firstTime = new Date(now).set({

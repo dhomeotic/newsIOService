@@ -55,6 +55,13 @@ io.on("connection", (socket) => {
         });
       });
       setTimeout(() => {
+        callNewsAPI(userData).then((data) => {
+          console.log("Send API data.");
+          socket.emit("getNewsAuto", {
+            data: data,
+          });
+        });
+        console.log("hehehehehhehehehehhe");
         //Puis tout les X time on actualise ces données.
         interval = setInterval(function () {
           //appel api vers l'api d'actualité

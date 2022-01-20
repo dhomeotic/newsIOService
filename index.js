@@ -20,9 +20,7 @@ io.on("connection", (socket) => {
   var interval;
 
   socket.on("disconnect", () => {
-    console.log(interval);
     clearInterval(interval);
-    console.log(interval);
   });
 
   //Le client demande expressement des données

@@ -5,7 +5,7 @@ const SETTINGS = {
     },
     TIME_REFRESH: {
         FIRST_REFRESH: 0,
-        LAST_REFRESH: 0,
+        LAST_REFRESH: 1,
         TIME_BEFORE_REFRESH: 0
     }
 

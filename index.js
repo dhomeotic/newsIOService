@@ -1,4 +1,5 @@
 const express = require("express");
+const { cp } = require("fs/promises");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
@@ -54,30 +55,35 @@ io.on("connection", (socket) => {
           data: data,
         });
       });
-      setTimeout(() => {
-        callNewsAPI(userData).then((data) => {
-          console.log("Send API data.");
-          socket.emit("getNewsAuto", {
-            data: data,
-          });
-        });
-        console.log("hehehehehhehehehehhe");
-        //Puis tout les X time on actualise ces données.
-        interval = setInterval(function () {
-          //appel api vers l'api d'actualité
-          callNewsAPI(userData).then((data) => {
-            console.log("Send API data.");
-            socket.emit("getNewsAuto", {
-              data: data,
-            });
-          });
-        }, getTimeCycle());
-      }, getTimeBeforeStartCycle());
+
+      setTimeout(getTimeBeforeStartCycle(), test(userData, interval, socket));
     } else {
       console.log("Merci de spécifier des préférences utilisateur.");
     }
   });
 });
+
+function test (userData, interval, socket) {
+  callNewsAPI(userData).then((data) => {
+    console.log("Send API data.");
+    socket.emit("getNewsAuto", {
+      data: data,
+    });
+  });
+  //Puis tout les X time on actualise ces données.
+  interval = setInterval(function () {
+
+    console.log("-------------------CA FONCTIONNE----------------")
+
+    //appel api vers l'api d'actualité
+    callNewsAPI(userData).then((data) => {
+      console.log("Send API data.");
+      socket.emit("getNewsAuto", {
+        data: data,
+      });
+    });
+  }, getTimeCycle());
+}
 
 server.listen(3000, () => {
   console.log("listening on *:3000");

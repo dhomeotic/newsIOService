@@ -34,7 +34,7 @@ async function callNewsAPI(userData) {
     return instance
         .get(generateUrl("/latest_headlines?", userData), {
             timeout: 5000,
-            headers: { "x-api-key": "KJmaITz--gyy0Nh6M18LYS_Jvxb50mVpmAasqdtyxBw" },
+            headers: { "x-api-key": SETTINGS.AXIOS_API.API_KEY },
         })
         .then(function(response) {
             return response.data;

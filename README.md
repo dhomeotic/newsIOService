@@ -1,5 +1,5 @@
 # actualityIOService
-
+This project is developped to make a REST API fetchable like a socket.
 
 # Refresh System
 
